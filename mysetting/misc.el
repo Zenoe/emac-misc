@@ -3,6 +3,7 @@
 (define-key process-menu-mode-map (kbd "C-k") 'joaot/delete-process-at-point)
 (global-set-key (kbd "M-p") 'move-up-half)
 (global-set-key (kbd "M-n") 'move-down-half)
+(global-set-key (kbd "C-;") 'comment-line)
 
 (defun joaot/delete-process-at-point ()
   (interactive)
