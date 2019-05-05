@@ -1,0 +1,9 @@
+Debugger entered--Lisp error: (void-variable string)
+  (replace-regexp-in-string "[ \011\n]*\\'" "" string)
+  (replace-regexp-in-string "\\`[ \011\n]*" "" (replace-regexp-in-string "[ \011\n]*\\'" "" string))
+  eval-region(3173 3267 t #f(compiled-function (ignore) #<bytecode 0xe1c29d>))  ; Reading at buffer position 3733
+  elisp--eval-defun()
+  eval-defun(nil)
+  funcall-interactively(eval-defun nil)
+  call-interactively(eval-defun nil nil)
+  command-execute(eval-defun)

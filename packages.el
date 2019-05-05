@@ -9,4 +9,5 @@
 
 ;; https://github.com/bburns/clipmon
 ;; (package! clipmon)
-;; (package! xclip)
+(package! xclip)
+(package! wgrep)

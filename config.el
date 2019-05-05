@@ -6,6 +6,10 @@
 (require 'helm)
 (general-evil-setup t)
 
+(require 'dired)
+(require 'xclip)
+(xclip-mode 1)
+(setq dired-dwim-target t)
 
 (defvar myset-folder "~/.doom.d/mysetting/")
 (load-file ( concat myset-folder "misc.el"))
@@ -19,11 +23,42 @@
 
 (require 'hl-line)
 ;; (set-face-attribute 'hl-line nil :background "#80f28B")
-(set-face-background hl-line-face "darkblue" )
+(set-face-background hl-line-face "#A0B3B5")
 
 (nvmap "gl" 'evil-last-non-blank)
 (nvmap "gy" 'paste-next-line)
-(nvmap "gh" '+helm:ag)
+(nvmap "g]" '+helm:ag) ; search in current project
+(nvmap "g[" 'helm-ag-buffers)
+(nvmap "gb" 'sp-splice-sexp)
+(nvmap "zv" 'selcurrentline)
+(nvmap "zs" 'surround-region-with-if)
+
+(defun selcurrentline ()
+  ;;; select current line.
+  ;;; will change curosr's position
+  (interactive)
+     (evil-first-non-blank)
+     (evil-visual-char)
+     (evil-end-of-line)
+   )
+
+(define-key evil-normal-state-map (kbd "M-;")
+  ;; insert a character at the end of current line. semicolon default
+  (lambda(c)
+    (interactive "p")
+    (save-excursion
+      (let (
+            (pt (search-forward "\n"))
+            )
+        (backward-char)
+        (if (= c 1)
+            (insert-char ?\;)
+          (insert-char c)
+          )
+        )
+      )
+    )
+  )
 
 (define-key evil-normal-state-map (kbd "RET")
   (lambda(count)
@@ -56,6 +91,7 @@
 
 ;; (define-key evil-normal-state-map (kbd ", SPC") 'recentf-open-most-recent-file-3)
 (define-key evil-insert-state-map (kbd "M-SPC") 'surround-next-text)
+(define-key evil-insert-state-map (kbd "M-;") 'yank)
 ;; (bind-key "C-x C-e" 'eval-current-line)
 ;; (unbind-key "C-x z")
 ;; (bind-key "C-x C-z" 'repeat)
@@ -109,3 +145,5 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 ;;   (if (eq selective-display (1+ (current-column)))
 ;;       (set-selective-display 0)
 ;;     (set-selective-display (or level (1+ (current-column))))))
+;;(global-auto-complete-mode t)
+(add-hook 'go-mode-hook '+company/toggle-auto-completion)
