@@ -27,6 +27,7 @@
 
 (nvmap "gl" 'evil-last-non-blank)
 (nvmap "gy" 'paste-next-line)
+<<<<<<< HEAD
 (nvmap "g]" '+helm:ag) ; search in current project
 (nvmap "g[" 'helm-ag-buffers)
 (nvmap "gb" 'sp-splice-sexp)
@@ -60,6 +61,10 @@
     )
   )
 
+=======
+(nvmap "gh" '+helm:ag)
+(nvmap "gb" 'sp-splice-sexp)
+>>>>>>> 8d59cda7dfd953da57fc1e3d189d58dc7b261540
 (define-key evil-normal-state-map (kbd "RET")
   (lambda(count)
     (interactive "p")

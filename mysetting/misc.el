@@ -1,6 +1,7 @@
 ;;; ~/.doom.d/mysetting/misc.el -*- lexical-binding: t; -*-
 
 (define-key process-menu-mode-map (kbd "C-k") 'joaot/delete-process-at-point)
+
 (global-set-key (kbd "M-1")
                (lambda()
                  (interactive)
@@ -11,6 +12,11 @@
                  (interactive)
                  ( +workspace/switch-to 1 )
                  ))
+
+;; (global-set-key (kbd "M-p") 'move-up-half)
+;; (global-set-key (kbd "M-n") 'move-down-half)
+(global-set-key (kbd "C-;") 'comment-line)
+
 
 (global-set-key (kbd "M-3")
                (lambda()
