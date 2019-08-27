@@ -14,15 +14,9 @@
 
        :completion
        company           ; the ultimate code completion backend
-<<<<<<< HEAD
        (helm +fuzzy)     ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
-=======
-       (helm +fuzzy)             ; the *other* search engine for love and life
-       ;;ido              ; the other *other* search engine...
-       ;;ivy              ; a search engine for love and life
->>>>>>> 8d59cda7dfd953da57fc1e3d189d58dc7b261540
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -115,12 +109,8 @@
        ;;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
        ;;ess               ; emacs speaks statistics
-<<<<<<< HEAD
        ;;fsharp           ; ML stands for Microsoft's Language
-       ;;go                ; the hipster dialect
-=======
        go                ; the hipster dialect
->>>>>>> 8d59cda7dfd953da57fc1e3d189d58dc7b261540
        ;;(haskell +intero) ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
