@@ -2,38 +2,15 @@
 
 (define-key process-menu-mode-map (kbd "C-k") 'joaot/delete-process-at-point)
 
-(global-set-key (kbd "M-1")
-               (lambda()
-                 (interactive)
-                 ( +workspace/switch-to 0 )
-                 ))
-(global-set-key (kbd "M-2")
-               (lambda()
-                 (interactive)
-                 ( +workspace/switch-to 1 )
-                 ))
+;; (global-set-key (kbd "M-1")
+;;                (lambda()
+;;                  (interactive)
+;;                  ( +workspace/switch-to 0 )
+;;                  ))
 
 ;; (global-set-key (kbd "M-p") 'move-up-half)
 ;; (global-set-key (kbd "M-n") 'move-down-half)
 (global-set-key (kbd "C-;") 'comment-line)
-
-
-(global-set-key (kbd "M-3")
-               (lambda()
-                 (interactive)
-                 ( +workspace/switch-to 2 )
-                 ))
-(global-set-key (kbd "M-4")
-               (lambda()
-                 (interactive)
-                 ( +workspace/switch-to 3 )
-                 ))
-
-(global-set-key (kbd "M-5")
-               (lambda()
-                 (interactive)
-                 ( +workspace/switch-to 4 )
-                 ))
 
 (global-set-key (kbd "C-s") 'save-buffer)
 
@@ -154,12 +131,13 @@
         :desc "downlist"               "d"  #'down-list
         ;; :desc "clip mon"            "c"  #'clipmon-autoinsert-toggle
         :desc "goto function name"  "a" #'gotofunname
-        :desc ""  "v" #'+helm/workspace-buffer-list
+        ;; :desc ""  "v" #'+helm/workspace-buffer-list
         )
 
       )
 
-(map! (:when (featurep! :feature evil)
-        :m  "ze"    #'searchb4spaceorbracket
+(map!
+ :m  "ze"    #'searchb4spaceorbracket
+ :m  "zg"    #'sgml-skip-tag-forward
+ :m  "zG"    #'sgml-skip-tag-backward
         )
-      )

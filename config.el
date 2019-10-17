@@ -2,8 +2,6 @@
 
 ;; Place your private configuration here
 
-(require 'general)
-(require 'helm)
 (general-evil-setup t)
 
 (require 'dired)
@@ -149,3 +147,4 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 ;;     (set-selective-display (or level (1+ (current-column))))))
 ;;(global-auto-complete-mode t)
 (add-hook 'go-mode-hook '+company/toggle-auto-completion)
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
