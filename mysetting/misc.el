@@ -33,9 +33,6 @@
         )
     ;; (while (not (eolp))
     (while (not (memq (char-after) '(?\t ?\n ?\s ?\( ?\) ?\] ?\[)))
-      (let* ((current-character (char-after))
-             )
-        )
       (evil-forward-char 1))
 
     ;; (message "%d, %d" oldpt (point))
@@ -140,4 +137,5 @@
  :m  "ze"    #'searchb4spaceorbracket
  :m  "zg"    #'sgml-skip-tag-forward
  :m  "zG"    #'sgml-skip-tag-backward
+ :m  "zp"    #'yank-and-indent
         )

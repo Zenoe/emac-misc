@@ -11,10 +11,11 @@
 
 (defvar myset-folder "~/.doom.d/mysetting/")
 (load-file ( concat myset-folder "misc.el"))
+(load-file ( concat myset-folder "quickedit.el"))
 
-(set-face-attribute 'helm-selection nil 
-                    :background "purple"
-                    :foreground "black")
+;; (set-face-attribute 'helm-selection nil
+;;                     :background "purple"
+;;                     :foreground "black")
 
 (set-face-attribute 'region nil :background "#404050" :foreground "yellow" )
 (set-face-attribute 'lazy-highlight nil :foreground "red" :background "black")
@@ -147,4 +148,9 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 ;;     (set-selective-display (or level (1+ (current-column))))))
 ;;(global-auto-complete-mode t)
 (add-hook 'go-mode-hook '+company/toggle-auto-completion)
+;; typescript
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(setq typescript-indent-level 2)
+(setq javascript-indent-level 2)
+;;
+(setq evil-ex-search-case 'sensitive)
