@@ -26,8 +26,7 @@
 
 (nvmap "gl" 'evil-last-non-blank)
 (nvmap "gy" 'paste-next-line)
-(nvmap "g]" '+helm:ag) ; search in current project
-(nvmap "g[" 'helm-ag-buffers)
+(nvmap "gh" '+ivy/project-search)
 (nvmap "gb" 'sp-splice-sexp)
 (nvmap "zv" 'selcurrentline)
 (nvmap "zs" 'surround-region-with-if)
@@ -59,8 +58,6 @@
     )
   )
 
-(nvmap "gh" '+helm:ag)
-(nvmap "gb" 'sp-splice-sexp)
 (define-key evil-normal-state-map (kbd "RET")
   (lambda(count)
     (interactive "p")
@@ -149,7 +146,8 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 ;;(global-auto-complete-mode t)
 (add-hook 'go-mode-hook '+company/toggle-auto-completion)
 ;; typescript
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . js-jsx-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (setq typescript-indent-level 2)
 (setq javascript-indent-level 2)
 ;;
