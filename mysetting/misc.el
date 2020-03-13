@@ -10,7 +10,6 @@
 
 ;; (global-set-key (kbd "M-p") 'move-up-half)
 ;; (global-set-key (kbd "M-n") 'move-down-half)
-(global-set-key (kbd "C-;") 'comment-line)
 
 (global-set-key (kbd "C-s") 'save-buffer)
 
@@ -24,6 +23,14 @@
       (evil-forward-word-begin 2)
     (evil-forward-word-begin 1)
     )
+  )
+
+(defun YankFrom0 ()
+  "replace the current word with text from register 0"
+  (interactive)
+  (kill-word 1)
+  ;; 48 is the ascii code for char '0'
+  (evil-paste-before nil 48)
   )
 
 (defun searchb4spaceorbracket ()
@@ -128,7 +135,6 @@
         :desc "downlist"               "d"  #'down-list
         ;; :desc "clip mon"            "c"  #'clipmon-autoinsert-toggle
         :desc "goto function name"  "a" #'gotofunname
-        ;; :desc ""  "v" #'+helm/workspace-buffer-list
         )
 
       )
@@ -138,4 +144,5 @@
  :m  "zg"    #'sgml-skip-tag-forward
  :m  "zG"    #'sgml-skip-tag-backward
  :m  "zp"    #'yank-and-indent
+ :m  "go"    #'comment-line
         )
