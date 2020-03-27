@@ -9,15 +9,16 @@
 (xclip-mode 1)
 (setq dired-dwim-target t)
 
+(add-to-list 'projectile-globally-ignored-files '("yarn.lock" "node_modules"))
+
 (defvar myset-folder "~/.doom.d/mysetting/")
 (load-file ( concat myset-folder "misc.el"))
 (load-file ( concat myset-folder "quickedit.el"))
 
-;; (set-face-attribute 'helm-selection nil
-;;                     :background "purple"
-;;                     :foreground "black")
+(require 'helm)
+(set-face-attribute 'helm-selection nil :background "white" :foreground "black")
 
-(set-face-attribute 'region nil :background "#404050" :foreground "yellow" )
+(set-face-attribute 'region nil :background "#409090" :foreground "yellow" )
 (set-face-attribute 'lazy-highlight nil :foreground "red" :background "black")
 
 (require 'hl-line)
@@ -26,7 +27,7 @@
 
 (nvmap "gl" 'evil-last-non-blank)
 (nvmap "gy" 'paste-next-line)
-(nvmap "gh" '+ivy/project-search)
+(nvmap "gh" '+helm/project-search)
 (nvmap "gb" 'sp-splice-sexp)
 (nvmap "zv" 'selcurrentline)
 (nvmap "zs" 'surround-region-with-if)
