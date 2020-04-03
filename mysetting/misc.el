@@ -19,9 +19,23 @@
 (defun gotofunname ()
   (interactive)
   (beginning-of-defun)
+  ;; skip function in the case
+  ;; export function fun(...) {}
+  (search-forward "function")
   (if ( string-equal "(" (string (char-after)) )
       (evil-forward-word-begin 2)
     (evil-forward-word-begin 1)
+    )
+  (save-excursion
+    (let ((oldpt ( point ))
+          )
+      (while (not (memq (char-after) '(?\t ?\n ?\s ?\( ?\) ?\] ?\[)))
+        (evil-forward-char 1))
+      (unless (> (point) oldpt)
+        (backward-char 1)
+        )
+      (evil-yank oldpt  ( point ) )
+      )
     )
   )
 
@@ -169,10 +183,6 @@ Version 2017-09-01"
         )
       )
 
-(map!
- :m  "ze"    #'searchb4spaceorbracket
- :m  "zg"    #'sgml-skip-tag-forward
- :m  "zG"    #'sgml-skip-tag-backward
- :m  "zp"    #'yank-and-indent
- :m  "go"    #'comment-line
-        )
+;; (map!
+;;  :m  "ze"    #'searchb4spaceorbracket
+;;         )
