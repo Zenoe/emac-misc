@@ -17,6 +17,7 @@
 (nvmap "zv" 'selcurrentline)
 (nvmap "z;" 'selectBlock)
 (nvmap "zs" 'surround-region-with-if)
+(nvmap "zw" 'move-buffer-to-window)
 (nvmap "g;" 'gotoLastChange)
 (nvmap "ze" 'searchb4spaceorbracket)
 (nvmap "zg" 'sgml-skip-tag-forward)
@@ -24,7 +25,7 @@
 (nvmap "zp" 'yank-and-indent)
 (nvmap "go" 'comment-line)
 
-(definkey evil-normal-state-map (kbd "M-;")
+(define-key evil-normal-state-map (kbd "M-;")
   ;; insert a character at the end of current line. semicolon default
   (lambda(c)
     (interactive "p")
@@ -57,9 +58,27 @@
 ;; int terminal emacs. and I don't use C-k in evil mode
 (global-set-key (kbd "C-k") 'evil-jump-forward)
 
+(define-key process-menu-mode-map (kbd "C-k") 'joaot/delete-process-at-point)
+
+;; (global-set-key (kbd "M-1")
+;;                (lambda()
+;;                  (interactive)
+;;                  ( +workspace/switch-to 0 )
+;;                  ))
+
+;; (global-set-key (kbd "M-p") 'move-up-half)
+;; (global-set-key (kbd "M-n") 'move-down-half)
+
+;; (require 'helm-ag)
+(global-set-key (kbd "C-s") 'force-normal-n-save)
+;; (global-set-key (kbd "C-\\") 'helm-ag)
+
+;; (global-set-key (kbd "M-p") 'move-up-half)
+;; (global-set-key (kbd "M-n") 'move-down-half)
 ;; (define-key evil-normal-state-map (kbd ", SPC") 'recentf-open-most-recent-file-3)
 (define-key evil-insert-state-map (kbd "M-SPC") 'surround-next-text)
 (define-key evil-insert-state-map (kbd "M-;") 'yank)
+(define-key evil-insert-state-map (kbd "M-o") 'insert-next-line)
 ;; (bind-key "C-x C-e" 'eval-current-line)
 ;; (unbind-key "C-x z")
 ;; (bind-key "C-x C-z" 'repeat)

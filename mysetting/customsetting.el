@@ -19,8 +19,8 @@
 ;; hooks
 (add-hook 'go-mode-hook '+company/toggle-auto-completion)
 ;; typescript
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . js-jsx-mode))
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . js-jsx-mode))
+;; (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (setq typescript-indent-level 2)
 (setq javascript-indent-level 2)
 ;;

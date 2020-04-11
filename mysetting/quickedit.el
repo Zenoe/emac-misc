@@ -20,7 +20,7 @@
   (evil-open-below 1)
   (yank)
   (evil-force-normal-state)
-  (kill-line 1)
+  ;; (kill-line 1)
   (call-interactively 'indent-region))
 
 (defun cancel-selection ()
@@ -36,8 +36,8 @@
   (exchange-point-and-mark)
   (evil-last-non-blank)
   (evil-jump-item)
-  (evil-last-non-blank)
-  (evil-yank (region-beginning) (+ (region-end) 1 ))
+  (evil-end-of-line)
+  (evil-yank (region-beginning) (region-end) )
   ;; (evil-force-normal-state)
   )
 
@@ -97,6 +97,18 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 (replace-regexp-in-string "\\`[ \t\n]*" "" (replace-regexp-in-string "[ \t\n]*\\'" "" string))
 )
 
+(defun force-normal-n-save ()
+  (interactive)
+(evil-force-normal-state)
+(save-buffer)
+  )
+
+(defun insert-next-line ()
+  ;; go to next line to edit especially in insert state
+  (interactive)
+  (evil-end-of-line)
+  (evil-open-below 1)
+  )
 ;; (defun set-selective-display-dlw (&optional level)
 ;; "Fold text indented same of more than the cursor.
 ;; If level is set, set the indent level to LEVEL.
@@ -115,3 +127,9 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
   (let ((exists (get-buffer "*scratch*")))
     (switch-to-buffer (get-buffer-create "*scratch*"))
     ))
+
+(defun move-buffer-to-window ()
+  (interactive)
+  (set-window-buffer (next-window ) (buffer-name))
+  (evil-switch-to-windows-last-buffer)
+  )

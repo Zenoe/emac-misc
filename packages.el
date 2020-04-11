@@ -11,3 +11,6 @@
 ;; (package! clipmon)
 (package! xclip)
 (package! wgrep)
+
+;; (package! ag)
+;; (package! helm-ag)

@@ -1,21 +1,5 @@
 ;;; ~/.doom.d/mysetting/misc.el -*- lexical-binding: t; -*-
 
-(define-key process-menu-mode-map (kbd "C-k") 'joaot/delete-process-at-point)
-
-;; (global-set-key (kbd "M-1")
-;;                (lambda()
-;;                  (interactive)
-;;                  ( +workspace/switch-to 0 )
-;;                  ))
-
-;; (global-set-key (kbd "M-p") 'move-up-half)
-;; (global-set-key (kbd "M-n") 'move-down-half)
-
-(global-set-key (kbd "C-s") 'save-buffer)
-
-;; (global-set-key (kbd "M-p") 'move-up-half)
-;; (global-set-key (kbd "M-n") 'move-down-half)
-(global-set-key (kbd "C-;") 'comment-line)
 (defun gotofunname ()
   (interactive)
   (beginning-of-defun)
@@ -135,6 +119,11 @@
     (evil-insert-state)
     )
 
+(defun dired-project-root ()
+  (interactive)
+  (dired ( projectile-project-root ))
+  )
+
 (defun xah-copy-file-path (&optional @dir-path-only-p)
   "Copy the current buffer's file path or dired path to `kill-ring'.
 Result is full path.
@@ -176,10 +165,13 @@ Version 2017-09-01"
       (:prefix ("v" . "misc")
         :desc "copy filename"          "f"  #'copy_file_name
         :desc "copy path"          "p"  #'xah-copy-file-path
-        ;; :desc "uplist"                 "u"  #'backward-up-list
+        :desc ""                   "." #'dired-project-root
+        :desc "goto function name" "a" #'gotofunname
         :desc "downlist"               "d"  #'down-list
+
+        ;; :desc "uplist"                 "u"  #'backward-up-list
         ;; :desc "clip mon"            "c"  #'clipmon-autoinsert-toggle
-        :desc "goto function name"  "a" #'gotofunname
+
         )
       )
 
