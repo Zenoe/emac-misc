@@ -8,6 +8,7 @@
 (defvar myset-folder "~/.doom.d/mysetting/")
 (load-file ( concat myset-folder "customsetting.el"))
 (load-file ( concat myset-folder "misc.el"))
+(load-file ( concat myset-folder "nav.el"))
 (load-file ( concat myset-folder "quickedit.el"))
 
 (nvmap "gl" 'evil-last-non-blank)
@@ -24,6 +25,7 @@
 (nvmap "zG" 'sgml-skip-tag-backward)
 (nvmap "zp" 'yank-and-indent)
 (nvmap "go" 'comment-line)
+(nvmap "g[" 'project-helm-do-grep-ag)
 
 (define-key evil-normal-state-map (kbd "M-;")
   ;; insert a character at the end of current line. semicolon default
@@ -57,6 +59,9 @@
 ;; rebind C-k to evil-jump-forward 'cuase the default binding TAB is not working
 ;; int terminal emacs. and I don't use C-k in evil mode
 (global-set-key (kbd "C-k") 'evil-jump-forward)
+
+(require 'expand-region)
+(global-set-key (kbd "C-@") 'er/expand-region)
 
 (define-key process-menu-mode-map (kbd "C-k") 'joaot/delete-process-at-point)
 

@@ -27,3 +27,6 @@
 ;; (setq evil-ex-search-case 'sensitive)
 ;; (add-to-list 'projectile-globally-ignored-files '("yarn.lock" "node_modules"))
 ;; (global-auto-complete-mode t)
+;;
+(require 'flycheck)
+(flycheck-add-mode 'javascript-eslint 'rjsx-mode)
