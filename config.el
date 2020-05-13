@@ -61,7 +61,8 @@
 (global-set-key (kbd "C-k") 'evil-jump-forward)
 
 (require 'expand-region)
-(global-set-key (kbd "C-@") 'er/expand-region)
+(global-set-key (kbd "M-n") 'er/expand-region)
+(global-set-key (kbd "M-p") 'evilnc-copy-and-comment-lines)
 
 (define-key process-menu-mode-map (kbd "C-k") 'joaot/delete-process-at-point)
 
