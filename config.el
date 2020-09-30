@@ -27,6 +27,8 @@
 (nvmap "go" 'comment-line)
 (nvmap "g[" 'project-helm-do-grep-ag)
 
+(global-set-key (kbd "C-x C-n") 'yf/replace-or-delete-pair)
+
 (define-key evil-normal-state-map (kbd "M-;")
   ;; insert a character at the end of current line. semicolon default
   (lambda(c)
