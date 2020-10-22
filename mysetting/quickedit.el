@@ -14,13 +14,24 @@
 ;;                  (let ((mark-even-if-inactive transient-mark-mode))
 ;;                    (indent-region (region-beginning) (region-end) nil))))))
 
+(defun current-line-empty-p ()
+  (message "icurrent-line-empty-p")
+  (string-match-p "\\`\\s-*$" (thing-at-point 'line)))
+
+;; (defun current-line-empty-p ()
+;;   (message "current-line-empty-p")
+;;   (save-excursion
+;;     (beginning-of-line)
+;;     (looking-at-p "[[:space:]]*$")))
+
 (defun yank-and-indent ()
   "Yank and then indent the newly formed region according to mode."
   (interactive)
-  (evil-open-below 1)
+  (unless ( current-line-empty-p )
+          (evil-open-below 1)
+          )
   (yank)
   (evil-force-normal-state)
-  ;; (kill-line 1)
   (call-interactively 'indent-region))
 
 (defun cancel-selection ()

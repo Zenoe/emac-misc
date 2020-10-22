@@ -1,0 +1,19 @@
+# key: cls
+# name: statefull
+# --
+import React from 'react';
+import * as styles from './${1:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`}.less'
+
+class ${2:name} extends React.PureComponent{
+  constructor(props){
+    super(props)
+  }
+
+  render(){
+   <${4:div}>
+    $0
+  </$4>
+  }
+}
+
+export default $2;
