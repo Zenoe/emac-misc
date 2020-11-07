@@ -4,8 +4,8 @@
 
 (general-evil-setup t)
 (xclip-mode 1)
-(require 'helm)
-(set-face-attribute 'helm-selection nil :background "#EFFFE0" :foreground "black")
+;;(require 'helm)
+;;(set-face-attribute 'helm-selection nil :background "#EFFFE0" :foreground "black")
 
 ;; (set-face-attribute 'region nil :background "#909090" :foreground "#DD00D8" )
 ;; (set-face-attribute 'lazy-highlight nil :foreground "red" :background "black")
@@ -46,4 +46,4 @@
 (define-key company-search-map (kbd "M-[") 'company-select-next)
 (define-key company-search-map (kbd "M-]") 'company-select-previous)
 
-(setq xref-js2-search-program 'rg)
+;; (setq xref-js2-search-program 'ag)

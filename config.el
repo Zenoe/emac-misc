@@ -13,7 +13,9 @@
 
 (nvmap "gl" 'evil-last-non-blank)
 ;; (nvmap "gy" 'paste-next-line)
-(nvmap "gh" '+helm/project-search)
+(nvmap "gh" 'counsel-projectile-ag)
+(nvmap "g[" 'counsel-projectile-rg)
+
 (nvmap "gb" 'sp-splice-sexp)
 (nvmap "zv" 'selcurrentline)
 (nvmap "z;" 'selectBlock)
@@ -25,7 +27,6 @@
 (nvmap "zG" 'sgml-skip-tag-backward)
 (nvmap "zp" 'yank-and-indent)
 (nvmap "go" 'comment-line)
-(nvmap "g[" 'project-helm-do-grep-ag)
 
 (global-set-key (kbd "C-x C-n") 'yf/replace-or-delete-pair)
 
