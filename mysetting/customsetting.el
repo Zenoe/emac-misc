@@ -3,7 +3,9 @@
 
 
 (general-evil-setup t)
-(xclip-mode 1)
+(when (require 'xclip nil 'noerror)
+  (xclip-mode 1))
+
 ;;(require 'helm)
 ;;(set-face-attribute 'helm-selection nil :background "#EFFFE0" :foreground "black")
 

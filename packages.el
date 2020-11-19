@@ -9,7 +9,18 @@
 
 ;; https://github.com/bburns/clipmon
 ;; (package! clipmon)
-(package! xclip)
 (package! wgrep)
+
+(cond
+ ;; ((string-equal system-type "windows-nt")
+ ;;  (progn
+ ;;    (message "Microsoft Windows")))
+ ;; ((string-equal system-type "darwin") ;  macOS
+ ;;  (progn
+ ;;    (message "Mac OS X")))
+ ((string-equal system-type "gnu/linux")
+  (progn
+    (package! xclip)
+    )))
 
 ;; (package! ag)

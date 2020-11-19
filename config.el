@@ -3,7 +3,6 @@
 ;; Place your private configuration here
 
 (require 'dired)
-(require 'xclip)
 
 (defvar myset-folder "~/.doom.d/mysetting/")
 (load-file ( concat myset-folder "customsetting.el"))
