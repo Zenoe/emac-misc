@@ -26,6 +26,8 @@
 (nvmap "zG" 'sgml-skip-tag-backward)
 (nvmap "zp" 'yank-and-indent)
 (nvmap "go" 'comment-line)
+(nvmap "[e" 'flycheck-previous-error)
+(nvmap "]e" 'flycheck-next-error)
 
 (global-set-key (kbd "C-x C-n") 'yf/replace-or-delete-pair)
 
