@@ -11,6 +11,7 @@
 
 ;; pass function ivy-thing-at-point to counsel-projectile-ag
 ;; which is eval(ed) and the result is pass to counsel-ag
+
 (setq counsel-projectile-ag-initial-input  '( ivy-thing-at-point ) )
 (defun ivy-with-thing-at-point (cmd)
   (let ((ivy-initial-inputs-alist
@@ -22,7 +23,6 @@
   (interactive)
   (ivy-with-thing-at-point 'counsel-projectile-ag))
 
-;; Example 2
 (defun swiper-apt ()
   (interactive)
   (ivy-with-thing-at-point 'swiper))

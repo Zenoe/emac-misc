@@ -48,4 +48,6 @@
 (define-key company-search-map (kbd "M-[") 'company-select-next)
 (define-key company-search-map (kbd "M-]") 'company-select-previous)
 
+(global-set-key (kbd "C-<down>") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<up>") 'mc/mark-previous-like-this)
 ;; (setq xref-js2-search-program 'ag)
